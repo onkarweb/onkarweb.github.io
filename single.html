@@ -59,7 +59,7 @@
         <div class="row no-gutters slider-text js-fullheight justify-content-center align-items-center">
           <div class="col-lg-10 ftco-animate d-flex align-items-center">
           	<div class="text text-center">
-          		<h1 class="mb-3 bread" id="project_name">Project Name</h1>
+          		<h1 class="mb-3 bread" id="project_name">Page Not Found :(</h1>
 	            <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> <span class="mr-2"><a href="index.html#projects-section">Projects <i class="ion-ios-arrow-forward"></i></a></span> <span>Single Project <i class="ion-ios-arrow-forward"></i></span></p>
             </div>
           </div>
@@ -260,7 +260,7 @@
     ]
 
     //Get the project data object
-    if(projectId >= projectsData.length){
+    if(projectId >= projectsData.length || projectId == undefined){
       document.getElementById('project_name').innerHTML = "Page Not Found :(";
     }else{
       var currentProject = projectsData[projectId];
