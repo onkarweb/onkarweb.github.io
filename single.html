@@ -71,7 +71,7 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-8 ftco-animate">
-            <h2 class="mb-3" id="tagline">It is a long established fact a reader be distracted</h2>
+            <h2 class="mb-3" id="tagline">It's not you, it's me</h2>
             <p id="description"></p>
             <p style="text-align: center;">
               <img id="project_image1" alt="" class="img-fluid">
@@ -259,42 +259,44 @@
 
     ]
 
-    console.log('Entire Array is: ', projectsData);
-
     //Get the project data object
-    var currentProject = projectsData[projectId];
+    if(projectId >= projectsData.length){
+      document.getElementById('project_name').innerHTML = "Page Not Found :(";
+    }else{
+      var currentProject = projectsData[projectId];
 
-    //project name
-    document.getElementById('project_name').innerHTML = currentProject.name;
+      //project name
+      document.getElementById('project_name').innerHTML = currentProject.name;
 
-    //Heading
-    document.getElementById('tagline').innerHTML = currentProject.tagline;
+      //Heading
+      document.getElementById('tagline').innerHTML = currentProject.tagline;
 
-    //Languages used
-    var languagesList = document.getElementById("languages");
-    currentProject.languages.forEach((item, index) => {
-      var listItem = document.createElement("li");   // Create a <li> element
-      listItem.innerHTML = item;                     // Insert text
-      languagesList.appendChild(listItem);   
-    })
+      //Languages used
+      var languagesList = document.getElementById("languages");
+      currentProject.languages.forEach((item, index) => {
+        var listItem = document.createElement("li");   // Create a <li> element
+        listItem.innerHTML = item;                     // Insert text
+        languagesList.appendChild(listItem);   
+      })
 
-    //description
-    document.getElementById('description').innerHTML = currentProject.description;
-    document.getElementById('project_image1').src = currentProject.images[0];
+      //description
+      document.getElementById('description').innerHTML = currentProject.description;
+      document.getElementById('project_image1').src = currentProject.images[0];
 
-    if(projectId == 9){
-      document.getElementById('project_image1').style.maxHeight = "400px";
-    }
+      if(projectId == 9){
+        document.getElementById('project_image1').style.maxHeight = "400px";
+      }
 
-    if(currentProject.link != ""){
-      document.getElementById('project_link').href = currentProject.link;
-      document.getElementById('project_link').innerHTML = currentProject.link;
-    } 
+      if(currentProject.link != ""){
+        document.getElementById('project_link').href = currentProject.link;
+        document.getElementById('project_link').innerHTML = currentProject.link;
+      } 
 
-    var linkNotes = document.getElementById('project_link_notes');
-    if(currentProject.linkNotes != undefined && currentProject.linkNotes != null){
-      linkNotes.style.display = "block";
-      linkNotes.innerHTML = currentProject.linkNotes;
+      var linkNotes = document.getElementById('project_link_notes');
+      if(currentProject.linkNotes != undefined && currentProject.linkNotes != null){
+        linkNotes.style.display = "block";
+        linkNotes.innerHTML = currentProject.linkNotes;
+      }
     }
 
     
