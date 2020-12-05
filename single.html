@@ -26,6 +26,10 @@
         color:black;
       }
 
+      .topPadding{
+        padding-top: 35px;
+      }
+
       #project_link_notes, #project_videos{
         display: none;
       }
@@ -79,8 +83,7 @@
                 Your browser does not support the video tag.
                 </video> 
             </p>
-            <p style="text-align: center;">
-              <img id="project_image1" alt="" class="img-fluid">
+            <p id="project_images" style="text-align: center;">
             </p>
                
 
@@ -168,7 +171,7 @@
         "tagline":"A social media site prototype for Sheridan College",
         "description": "This is a customized social media site for Sheridan College. It uses JavaScript library React.js for it's frontend and Node.js for the backend. Some of the features this project offers are: signup, signin, real time chat, friend requests, notifications, creating posts with pictures, uploading profile picture and liking the posts. This project serves the purpose to bring the student community at Sheridan much more closer.",
         "languages":["React.js", "Node.js", "HTML5", "CSS3", "Cloudinary", "PostgreSQL"],
-        "images":["images/projects/sheridanunite.PNG", "images/projects/sheridanunite3.png", "images/projects/sheridanunite4.png", "images/projects/sheridanunite5.png", "images/projects/sheridanunite6.png",],
+        "images":["images/projects/sheridanunite.PNG", "images/projects/sheridanunite3.png", "images/projects/sheridanunite4.png", "images/projects/sheridanunite5.png", "images/projects/sheridanunite6.png"],
         "link":"https://theunite.netlify.app/",
         "linkNotes":"Create an account, verify your email and then make sure to send a friend request to me on Unite :)"
       },
@@ -294,12 +297,22 @@
         languagesList.appendChild(listItem);   
       })
 
+      //images
+      var imagesContainer = document.getElementById("project_images");
+      currentProject.images.forEach((imgSrc, index) => {
+        var img = document.createElement("img");
+        img.src = imgSrc;
+        img.className = "img-fluid topPadding";
+        imagesContainer.appendChild(img);
+      })
+
       //description
       document.getElementById('description').innerHTML = currentProject.description;
-      document.getElementById('project_image1').src = currentProject.images[0];
+      //document.getElementById('project_image1').src = currentProject.images[0];
 
+      //android project image - hence looks best when smaller
       if(projectId == 9){
-        document.getElementById('project_image1').style.maxHeight = "400px";
+        document.getElementById('project_images').children[0].style.maxHeight = "400px";
       }
 
 
